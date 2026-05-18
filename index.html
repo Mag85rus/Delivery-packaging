@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Шпаргалка повара: упаковка доставки | Multi-language</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fff5f5;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 20px;
+            color: #2c2c2c;
+        }
+
+        .card-page {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 48px;
+            box-shadow: 0 20px 40px rgba(180, 40, 40, 0.08);
+            overflow: hidden;
+            border: 1px solid #ffcdcd;
+        }
+
+        .hero-red {
+            background: #b91c1c;
+            background: linear-gradient(135deg, #a71e1e 0%, #c12525 100%);
+            color: white;
+            padding: 28px 32px 24px;
+        }
+        .hero-red .badge {
+            display: inline-block;
+            background: white;
+            color: #b91c1c;
+            font-weight: 800;
+            font-size: 0.7rem;
+            padding: 4px 14px;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+        .hero-red h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+        .hero-red .sub {
+            margin-top: 12px;
+            font-size: 1rem;
+            opacity: 0.92;
+            border-left: 3px solid #ffb4b4;
+            padding-left: 18px;
+            font-weight: 500;
+        }
+
+        /* переключатель языков */
+        .lang-switch {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+            background: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid #ffdddd;
+        }
+        .lang-btn {
+            background: #fef2f2;
+            border: 1px solid #ffc9c9;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.1s;
+            color: #b63434;
+        }
+        .lang-btn.active {
+            background: #b91c1c;
+            color: white;
+            border-color: #b91c1c;
+        }
+        .lang-btn:hover {
+            background: #ffe0e0;
+        }
+
+        .content {
+            padding: 28px 32px 36px;
+        }
+
+        .aware-block {
+            background: #fff0f0;
+            border-left: 6px solid #b91c1c;
+            padding: 20px 24px;
+            border-radius: 24px;
+            margin-bottom: 36px;
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #5a2e2e;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 28px 0 16px 0;
+            color: #a81a1a;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #ffcccc;
+            padding-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .section-title span {
+            background: #fce4e4;
+            padding: 2px 12px;
+            border-radius: 60px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #b91c1c;
+        }
+
+        .qa-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 32px;
+        }
+        .qa-item {
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid #ffe0e0;
+            transition: 0.1s;
+            box-shadow: 0 2px 6px rgba(185, 28, 28, 0.05);
+        }
+        .qa-question {
+            background: #fff6f6;
+            padding: 16px 24px;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #b12a2a;
+            border-bottom: 1px solid #ffd9d9;
+            letter-spacing: -0.2px;
+        }
+        .qa-answer {
+            padding: 18px 24px;
+        }
+        .qa-answer p {
+            margin-bottom: 12px;
+            line-height: 1.45;
+        }
+        .task-red {
+            background: #fef2f2;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            color: #b63434;
+            border: 1px solid #ffc9c9;
+        }
+
+        .reinforce-box {
+            background: #fdf0f0;
+            border-radius: 28px;
+            padding: 20px 26px;
+            margin: 20px 0 26px;
+            border: 1px solid #ffcfcf;
+        }
+        .reinforce-box p {
+            font-weight: 500;
+        }
+
+        .test-area {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 28px;
+            margin-top: 32px;
+            border: 2px solid #f0c0c0;
+            box-shadow: 0 6px 12px rgba(185,28,28,0.05);
+        }
+        .test-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #b91c1c;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .test-question {
+            background: #fffaf9;
+            border-radius: 24px;
+            padding: 18px;
+            margin-bottom: 20px;
+            border: 1px solid #ffd9d9;
+        }
+        .test-question p {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #331a1a;
+        }
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fffbfb;
+            padding: 6px 18px;
+            border-radius: 40px;
+            border: 1px solid #f2c5c5;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .option:hover {
+            background: #ffe7e7;
+        }
+        input[type="radio"] {
+            accent-color: #b91c1c;
+            width: 18px;
+            height: 18px;
+        }
+        .btn-check {
+            background: #b91c1c;
+            border: none;
+            color: white;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 8px;
+            transition: 0.1s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-check:hover {
+            background: #8f1515;
+        }
+        .result {
+            margin-top: 18px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #aa2e2e;
+        }
+        .feedback {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #2a6b47;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #b27a7a;
+            margin-top: 32px;
+            padding-bottom: 6px;
+        }
+
+        @media (max-width: 700px) {
+            .content {
+                padding: 18px;
+            }
+            .hero-red h1 {
+                font-size: 1.3rem;
+            }
+            .qa-question, .qa-answer {
+                padding: 14px 18px;
+            }
+            .options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .lang-switch {
+                justify-content: center;
+            }
+            .lang-btn {
+                padding: 4px 12px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card-page">
+    <div class="lang-switch">
+        <button class="lang-btn active" data-lang="ru">🇷🇺 Русский</button>
+        <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+        <button class="lang-btn" data-lang="ky">🇰🇬 Кыргызча</button>
+        <button class="lang-btn" data-lang="uz">🇺🇿 O‘zbekcha</button>
+        <button class="lang-btn" data-lang="tg">🇹🇯 Тоҷикӣ</button>
+    </div>
+    <div class="hero-red">
+        <div class="badge" id="badgeText">🔥 Микрообучение для повара</div>
+        <h1 id="heroTitle">Упаковка доставки:<br> никаких испорченных блюд</h1>
+        <div class="sub" id="heroSub">Гость оценивает блюдо не только по вкусу, но и по тому, как оно доехало. Правильная упаковка = свежесть, внешний вид и уважение к гостю.</div>
+    </div>
+
+    <div class="content">
+        <div class="aware-block" id="awareText">
+            ⚠️ <strong>Почему упаковка решает всё?</strong> Даже шедевральный ролл или суп могут превратиться в разочарование, если блюдо упаковано с нарушением всех стандартов. Гость платит за вкус <strong>И</strong> впечатление. Каждое испорченное блюдо = риск возврата, негативный отзыв и потеря прибыли.
+        </div>
+
+        <div class="section-title">
+            📌 <span id="rulesTitle">Главные правила</span> <span id="rulesBadge">обязан знать каждый повар</span>
+        </div>
+        <div class="qa-grid" id="qaGrid"></div>
+
+        <div class="reinforce-box" id="reinforceText">
+            <strong>🔁 Как мы удерживаем стандарт и не допускаем испорченных блюд</strong><br><br>
+            • Каждый день: контрольная проверка 3–5 заказов шефом или су-шефом.<br>
+            • Ошибки разбираем без наказаний – учимся на них. Если блюдо упаковано с нарушением стандартов, оно отправляется на пересборку.<br>
+            📢 <strong>Каждое испорченное блюдо – это удар по репутации. Наша команда – лучшая доставка в городе.</strong>
+        </div>
+
+        <div class="test-area">
+            <div class="test-title" id="testTitle">📝 Тест: проверь себя за 2 минуты <span style="font-size: 0.8rem;">5 вопросов</span></div>
+            <form id="quizForm">
+                <div class="test-question" data-qid="1">
+                    <p id="q1text">1. Вы сомневаетесь, какая упаковка нужна для блюда. Ваши действия?</p>
+                    <div class="options" id="q1opts"></div>
+                </div>
+                <div class="test-question" data-qid="2">
+                    <p id="q2text">2. Как правильно хранить контейнеры на кухне?</p>
+                    <div class="options" id="q2opts"></div>
+                </div>
+                <div class="test-question" data-qid="3">
+                    <p id="q3text">3. Нужной упаковки нет на месте. Что делать?</p>
+                    <div class="options" id="q3opts"></div>
+                </div>
+                <div class="test-question" data-qid="4">
+                    <p id="q4text">4. Вы видите трещину на контейнере. Можно ли его использовать?</p>
+                    <div class="options" id="q4opts"></div>
+                </div>
+                <div class="test-question" data-qid="5">
+                    <p id="q5text">5. Кто отвечает за правильную упаковку блюда?</p>
+                    <div class="options" id="q5opts"></div>
+                </div>
+            </form>
+            <button class="btn-check" id="checkQuiz">Проверить ответы</button>
+            <div id="quizResult" class="result"></div>
+            <div id="quizFeedback" class="feedback"></div>
+        </div>
+        <div class="footer-note" id="footerNote">🚫 Никаких испорченных блюд! Каждый контейнер – лицо нашего ресторана. Соблюдаем стандарты.</div>
+    </div>
+</div>
+
+<script>
+    // ======================= МУЛЬТИЯЗЫЧНЫЙ КОНТЕНТ =======================
+    const translations = {
+        ru: {
+            badge: "🔥 Микрообучение для повара",
+            heroTitle: "Упаковка доставки:<br> никаких испорченных блюд",
+            heroSub: "Гость оценивает блюдо не только по вкусу, но и по тому, как оно доехало. Правильная упаковка = свежесть, внешний вид и уважение к гостю.",
+            aware: "⚠️ <strong>Почему упаковка решает всё?</strong> Даже шедевральный ролл или суп могут превратиться в разочарование, если блюдо упаковано с нарушением всех стандартов. Гость платит за вкус <strong>И</strong> впечатление. Каждое испорченное блюдо = риск возврата, негативный отзыв и потеря прибыли.",
+            rulesTitle: "Главные правила",
+            rulesBadge: "обязан знать каждый повар",
+            qa: [
+                { q: "Вопрос 1: Какую упаковку брать для каждого блюда?",
+                  a: "Для каждого блюда в стандарте и на чек марке прописана своя упаковка – изучите стандарт. Не гадайте – сверяйтесь.",
+                  task: "🎯 Задача: если сомневаешься, посмотреть в стандарт или спроси у коллег." },
+                { q: "Вопрос 2: Где и как хранить упаковку на кухне?",
+                  a: "Только в перевернутом виде, верх дном. Чтобы внутрь не попадала пыль, влага и инородные предметы, и упаковка не деформировалась.",
+                  task: "🎯 Задача: после получения запаса на смену сразу перевернуть стопки — верх дном." },
+                { q: "Вопрос 3: Почему нельзя использовать «не ту» упаковку?",
+                  a: "При инвентаризации будут расхождения, а главное – гость может получить суп в салатнице, и блюдо будет испорчено. Это стыдно и дорого.",
+                  task: "🎯 Задача: брать ровно то, что указано в стандарте." },
+                { q: "Вопрос 4: Что делать, если нужной упаковки нет?",
+                  a: "Немедленно сообщить своему руководителю, менеджеру или оператору доставки. Они найдут решение (заказ из другого ресторана или согласованная замена).",
+                  task: "🎯 Задача: не молчать, не брать «что под руку попалось» без согласования." },
+                { q: "Вопрос 5: Как понять, что упаковка испорчена?",
+                  a: "Трещины, загрязнения, деформация, негерметичная крышка – брак. Такую упаковку использовать нельзя.",
+                  task: "🎯 Задача: проверять контейнер перед укладкой блюда." },
+                { q: "Вопрос 6: Кто проверяет правильность упаковки?",
+                  a: "Каждый повар отвечает за своё блюдо. Если ошибку заметил твой руководитель, оператор доставки или менеджер – переделываем в правильной упаковке без обид.",
+                  task: "🎯 Задача: не обижаться на замечания – это забота о госте и репутации." }
+            ],
+            reinforce: "<strong>🔁 Как мы удерживаем стандарт и не допускаем испорченных блюд</strong><br><br>• Каждый день: контрольная проверка 3–5 заказов шефом или су-шефом.<br>• Ошибки разбираем без наказаний – учимся на них. Если блюдо упаковано с нарушением стандартов, оно отправляется на пересборку.<br>📢 <strong>Каждое испорченное блюдо – это удар по репутации. Наша команда – лучшая доставка в городе.</strong>",
+            testTitle: "📝 Тест: проверь себя за 2 минуты",
+            questions: [
+                { text: "1. Вы сомневаетесь, какая упаковка нужна для блюда. Ваши действия?", options: ["Беру любую похожую, главное закрыть", "Спрашиваю у курьера", "Смотрю в памятке у рабочего места"], correct: "2" },
+                { text: "2. Как правильно хранить контейнеры на кухне?", options: ["Только в перевернутом виде, верх дном", "Как удобно, главное быстро достать", "Крышкой вниз, чтобы не пылились"], correct: "0" },
+                { text: "3. Нужной упаковки нет на месте. Что делать?", options: ["Сразу сказать менеджеру доставки", "Взять контейнер для другого блюда", "Отменить заказ без предупреждения"], correct: "0" },
+                { text: "4. Вы видите трещину на контейнере. Можно ли его использовать?", options: ["Да, если трещина небольшая", "Нет, бракованную упаковку использовать нельзя", "Только для холодных закусок"], correct: "1" },
+                { text: "5. Кто отвечает за правильную упаковку блюда?", options: ["Только менеджер", "Курьер, он же увозит", "Каждый повар за своё блюдо"], correct: "2" }
+            ],
+            footer: "🚫 Никаких испорченных блюд! Каждый контейнер – лицо нашего ресторана. Соблюдаем стандарты.",
+            btnCheck: "Проверить ответы"
+        },
+        en: {
+            badge: "🔥 Micro-training for cooks",
+            heroTitle: "Delivery packaging:<br> no spoiled dishes",
+            heroSub: "The guest judges the dish not only by taste but also by how it arrived. Proper packaging = freshness, appearance, and respect for the guest.",
+            aware: "⚠️ <strong>Why does packaging matter?</strong> Even a masterpiece roll or soup can become a disappointment if the dish is packaged in violation of all standards. The guest pays for taste <strong>AND</strong> impression. Every spoiled dish = risk of refund, negative review, and loss of profit.",
+            rulesTitle: "Main rules",
+            rulesBadge: "every cook must know",
+            qa: [
+                { q: "Question 1: Which packaging to use for each dish?",
+                  a: "Each dish has its own packaging according to the standard and check mark – study the standard. Don't guess – check.",
+                  task: "🎯 Task: if in doubt, look at the standard or ask colleagues." },
+                { q: "Question 2: Where and how to store packaging in the kitchen?",
+                  a: "Only upside down, bottom up. To prevent dust, moisture, and foreign objects from getting inside, and to avoid deformation.",
+                  task: "🎯 Task: after receiving the shift supply, immediately flip the stacks — bottom up." },
+                { q: "Question 3: Why can't you use the wrong packaging?",
+                  a: "Inventory discrepancies will occur, and more importantly, the guest might get soup in a salad bowl – the dish will be spoiled. It's shameful and costly.",
+                  task: "🎯 Task: use exactly what is specified in the standard." },
+                { q: "Question 4: What to do if the required packaging is missing?",
+                  a: "Immediately inform your supervisor, manager, or delivery operator. They will find a solution (order from another restaurant or approved substitute).",
+                  task: "🎯 Task: don't stay silent, don't grab 'whatever is at hand' without approval." },
+                { q: "Question 5: How to tell if packaging is damaged?",
+                  a: "Cracks, dirt, deformation, leaky lid – defective. Such packaging cannot be used.",
+                  task: "🎯 Task: check the container before placing the dish." },
+                { q: "Question 6: Who checks the correctness of packaging?",
+                  a: "Each cook is responsible for their own dish. If your supervisor, delivery operator, or manager notices an error – we redo it in the correct packaging without offense.",
+                  task: "🎯 Task: don't take offense at comments – it's about caring for the guest and reputation." }
+            ],
+            reinforce: "<strong>🔁 How we maintain the standard and avoid spoiled dishes</strong><br><br>• Every day: spot check of 3–5 orders by the chef or sous-chef.<br>• We discuss mistakes without punishment – we learn from them. If a dish is packaged in violation of standards, it is sent for repacking.<br>📢 <strong>Every spoiled dish is a blow to our reputation. Our team is the best delivery in town.</strong>",
+            testTitle: "📝 Quiz: test yourself in 2 minutes",
+            questions: [
+                { text: "1. You are unsure which packaging is needed for a dish. What do you do?", options: ["Take any similar, just close it", "Ask the courier", "Look at the cheat sheet at the workplace"], correct: "2" },
+                { text: "2. How to store containers in the kitchen correctly?", options: ["Only upside down, bottom up", "Any way, as long as it's quick", "Lid down to avoid dust"], correct: "0" },
+                { text: "3. The required packaging is missing. What to do?", options: ["Immediately tell the delivery manager", "Take a container for another dish", "Cancel the order without notice"], correct: "0" },
+                { text: "4. You see a crack on the container. Can you use it?", options: ["Yes, if it's small", "No, defective packaging cannot be used", "Only for cold appetizers"], correct: "1" },
+                { text: "5. Who is responsible for correct packaging of a dish?", options: ["Only the manager", "The courier", "Each cook for their own dish"], correct: "2" }
+            ],
+            footer: "🚫 No spoiled dishes! Every container represents our restaurant. Follow the standards.",
+            btnCheck: "Check answers"
+        },
+        ky: {
+            badge: "🔥 Ашпоздор үчүн микро-окутуу",
+            heroTitle: "Жеткирүү таңгагы:<br> бузулган тамактар жок",
+            heroSub: "Конок тамакты даамы менен гана эмес, анын кандай жеткени менен да баалайт. Туура таңгак = жаңылык, сырткы көрүнүш жана конокко урмат.",
+            aware: "⚠️ <strong>Эмне үчүн таңгак маанилүү?</strong> Шедевр ролл же шорпо дагы, эгерде тамак бардык стандарттарды бузуп таңгалган болсо, көңүл калууга айланат. Конок даам <strong>ЖАНА</strong> таасир үчүн төлөйт. Ар бир бузулган тамак = кайтарым, терс пикир жана кирешенин жоголушу.",
+            rulesTitle: "Негизги эрежелер",
+            rulesBadge: "ар бир ашпоз билиши керек",
+            qa: [
+                { q: "1-суроо: Ар бир тамак үчүн кайсы таңгакты алуу керек?",
+                  a: "Ар бир тамактын стандарты жана чек-маркасы боюнча өзүнүн таңгагы бар – стандартты үйрөнүңүз. Болжомодон алыс болуңуз – текшериңиз.",
+                  task: "🎯 Милдет: эгер шектенсеңиз, стандартты караңыз же кесиптештериңизден сураңыз." },
+                { q: "2-суроо: Таңгакты ашканада кайда жана кантип сактоо керек?",
+                  a: "Текшерүү: төңкөрүлүп, түбү жогору. Чаң, нымдуулук жана бөтөн нерселер ичине кирбеши үчүн, ошондой эле таңгак деформацияланбашы үчүн.",
+                  task: "🎯 Милдет: сменага запас алгандан кийин дароо стопкаларды төңкөрүңүз — түбү жогору." },
+                { q: "3-суроо: Эмне үчүн «ал эмес» таңгакты колдонсо болбойт?",
+                  a: "Инвентаризацияда келишпестиктер болот, эң негизгиси конок шорпону салат идишинде алып, тамак бузулат. Бул уят жана кымбат.",
+                  task: "🎯 Милдет: стандартта көрсөтүлгөндү так алыңыз." },
+                { q: "4-суроо: Керектүү таңгак жок болсо, эмне кылуу керек?",
+                  a: "Дароо жетекчиңизге, менеджерге же жеткирүү операторуна билдириңиз. Алар чечим табышат (башка ресторандан заказ же макулдашылган алмаштыруу).",
+                  task: "🎯 Милдет: үнсүз калбаңыз, макулдашуусуз «колго түшкөндү» албаңыз." },
+                { q: "5-суроо: Таңгактын бузулганын кантип билүүгө болот?",
+                  a: "Жарыктар, кирдүүлүк, деформация, герметикалык эмес капкак – бул кемтик. Мындай таңгакты колдонууга болбойт.",
+                  task: "🎯 Милдет: тамакты салганга чейин контейнерди текшерүү." },
+                { q: "6-суроо: Таңгактын тууралыгын ким текшерет?",
+                  a: "Ар бир ашпоз өзүнүн тамагы үчүн жооптуу. Эгерде жетекчиңиз, жеткирүү оператору же менеджер катаны байкаса – кекечтенбестен туура таңгакта кайра жасайбыз.",
+                  task: "🎯 Милдет: эскертүүлөргө кекечтенбөө – бул конокко жана репутацияга кам көрүү." }
+            ],
+            reinforce: "<strong>🔁 Биз стандартты кантип кармайбыз жана бузулган тамактарга жол бербейбиз</strong><br><br>• Күн сайын: шеф же су-шеф тарабынан 3–5 заказды көзөмөлдөө текшерүү.<br>• Каталарды жазасыз талдайбыз – алардан сабак алабыз. Эгерде тамак стандарттарды бузуп таңгалса, кайра таңгактоого жөнөтүлөт.<br>📢 <strong>Ар бир бузулган тамак – бул репутацияга сокку. Биздин команда шаардагы эң мыкты жеткирүү.</strong>",
+            testTitle: "📝 Тест: 2 мүнөттө өзүңүздү текшериңиз",
+            questions: [
+                { text: "1. Тамакка кайсы таңгак керек экенине шектенесиз. Сиздин аракет?", options: ["Окшошун алам, жаап койсо болду", "Курьерден сурайм", "Иш ордундагы эскертмеден карайм"], correct: "2" },
+                { text: "2. Контейнерлерди ашканада туура кантип сактоо керек?", options: ["Төңкөрүлүп, түбү жогору гана", "Каалаганымча, тез алуу маанилүү", "Капкагын ылдый чаң жукпасын"], correct: "0" },
+                { text: "3. Керектүү таңгак жок. Эмне кылуу керек?", options: ["Дароо жеткирүү менеджерине айтуу", "Башка тамактын контейнерин алуу", "Эскертпестен заказды жокко чыгаруу"], correct: "0" },
+                { text: "4. Контейнерде жарака көрдүңүз. Колдонсо болобу?", options: ["Ооба, эгер кичине болсо", "Жок, кемтиктүү таңгакты колдонсо болбойт", "Текшерүү: муздак тамактар үчүн гана"], correct: "1" },
+                { text: "5. Тамактын туура таңгагына ким жооптуу?", options: ["Менеджер гана", "Курьер, ал алып кетет", "Ар бир ашпоз өзүнүн тамагы үчүн"], correct: "2" }
+            ],
+            footer: "🚫 Бузулган тамактар жок! Ар бир контейнер – биздин ресторандын бети. Стандарттарды сактаңыз.",
+            btnCheck: "Жоопторду текшерүү"
+        },
+        uz: {
+            badge: "🔥 Oshpazlar uchun mikro-ta'lim",
+            heroTitle: "Yetkazib berish qadoqlari:<br> buzilgan taomlar yo'q",
+            heroSub: "Mehmon taomni nafaqat ta'mi, balki qanday yetib kelgani bilan ham baholaydi. To'g'ri qadoqlash = yangilik, tashqi ko'rinish va mehmonga hurmat.",
+            aware: "⚠️ <strong>Nima uchun qadoqlash muhim?</strong> Hatto eng zo'r roll yoki sho'rva ham, agar taom barcha standartlar buzilgan holda qadoqlangan bo'lsa, umidsizlikka aylanishi mumkin. Mehmon ta'm <strong>VA</strong> taassurot uchun to'laydi. Har bir buzilgan taom = qaytarish, salbiy sharh va foydaning yo'qolishi.",
+            rulesTitle: "Asosiy qoidalar",
+            rulesBadge: "har bir oshpaz bilishi shart",
+            qa: [
+                { q: "Savol 1: Har bir taom uchun qaysi qadoqni olish kerak?",
+                  a: "Har bir taom uchun standart va chek-markada o'z qadoqlanishi belgilangan – standartni o'rganing. Taxmin qilmang – tekshiring.",
+                  task: "🎯 Vazifa: agar shubhangiz bo'lsa, standartga qarang yoki hamkasblaringizdan so'rang." },
+                { q: "Savol 2: Qadoqni oshxonada qayerda va qanday saqlash kerak?",
+                  a: "Faqat teskari holatda, tubi yuqoriga. Chang, namlik va begona narsalar ichiga tushmasligi va qadoq deformatsiyalanmasligi uchun.",
+                  task: "🎯 Vazifa: smenaga zaxirani olganingizdan so'ng darhol stoplarni teskari aylantiring — tubi yuqoriga." },
+                { q: "Savol 3: Nima uchun «noto'g'ri» qadoqdan foydalanish mumkin emas?",
+                  a: "Inventarizatsiyada farqlar bo'ladi, eng muhimi, mehmon sho'rvani salat idishida olishi mumkin va taom buziladi. Bu uyat va qimmat.",
+                  task: "🎯 Vazifa: standartda ko'rsatilganini aniq oling." },
+                { q: "Savol 4: Kerakli qadoq bo'lmasa, nima qilish kerak?",
+                  a: "Darhol rahbaringizga, menejer yoki yetkazib berish operatoriga xabar bering. Ular yechim topadilar (boshqa restorandan buyurtma yoki kelishilgan almashtirish).",
+                  task: "🎯 Vazifa: jim turmang, kelishuvsiz «qo'lga kelganini» olmang." },
+                { q: "Savol 5: Qadoqning buzilganligini qanday tushunish mumkin?",
+                  a: "Yoriqlar, ifloslanish, deformatsiya, germetik bo'lmagan qopqoq – bu nuqson. Bunday qadoqdan foydalanish mumkin emas.",
+                  task: "🎯 Vazifa: taomni qo'yishdan oldin konteynerni tekshiring." },
+                { q: "Savol 6: Qadoqning to'g'riligini kim tekshiradi?",
+                  a: "Har bir oshpaz o'z taomi uchun javobgar. Agar rahbaringiz, yetkazib berish operatori yoki menejer xatoni sezsa – xafa bo'lmasdan to'g'ri qadoqda qayta tayyorlaymiz.",
+                  task: "🎯 Vazifa: tanbehlarga xafa bo'lmang – bu mehmon va obro' haqida qayg'urish." }
+            ],
+            reinforce: "<strong>🔁 Standartni qanday saqlaymiz va buzilgan taomlarga yo'l qo'ymaymiz</strong><br><br>• Har kuni: shef yoki su-shef tomonidan 3–5 ta buyurtmani nazorat tekshiruvi.<br>• Xatolarni jazosiz tahlil qilamiz – ulardan saboq olamiz. Agar taom standartlar buzilgan holda qadoqlangan bo'lsa, qayta qadoqlashga yuboriladi.<br>📢 <strong>Har bir buzilgan taom – obro'ga zarba. Bizning jamoa shahardagi eng yaxshi yetkazib berish.</strong>",
+            testTitle: "📝 Test: o'zingizni 2 daqiqada sinab ko'ring",
+            questions: [
+                { text: "1. Taom uchun qaysi qadoq kerakligiga shubha qilasiz. Sizning harakatingiz?", options: ["O'xshashini olaman, yopish muhim", "Kuryerdan so'rayman", "Ish joyidagi eslatmadan qarayman"], correct: "2" },
+                { text: "2. Konteynerlarni oshxonada qanday qilib to'g'ri saqlash kerak?", options: ["Faqat teskari, tubi yuqoriga", "Qulayroq, tez olish muhim", "Qopqog'i pastga chang tushmasligi uchun"], correct: "0" },
+                { text: "3. Kerakli qadoq yo'q. Nima qilish kerak?", options: ["Darhol yetkazib berish menejeriga aytish", "Boshqa taom uchun konteyner olish", "Ogohlantirmasdan buyurtmani bekor qilish"], correct: "0" },
+                { text: "4. Konteynerda yoriq ko'rasiz. Uni ishlatish mumkinmi?", options: ["Ha, agar kichik bo'lsa", "Yo'q, nuqsonli qadoqdan foydalanish mumkin emas", "Faqat sovuq taomlar uchun"], correct: "1" },
+                { text: "5. Taomning to'g'ri qadoqlanishiga kim javob beradi?", options: ["Faqat menejer", "Kuryer, u olib ketadi", "Har bir oshpaz o'z taomi uchun"], correct: "2" }
+            ],
+            footer: "🚫 Buzilgan taomlar yo'q! Har bir konteyner – bizning restoranimizning yuzi. Standartlarga rioya qiling.",
+            btnCheck: "Javoblarni tekshirish"
+        },
+        tg: {
+            badge: "🔥 Омӯзиши хурд барои ошпазон",
+            heroTitle: "Бастаи расонидани хӯрок:<br> ҳеҷ гуна хӯрокҳои вайроншуда",
+            heroSub: "Меҳмон хӯрокро на фақат мазааш, балки он чӣ гуна расиданашро низ қадр мекунад. Бастаи дуруст = тароват, намуди зоҳирӣ ва эҳтиром ба меҳмон.",
+            aware: "⚠️ <strong>Чаро баста муҳим?</strong> Ҳатто ролли шедевр ё шӯрбо метавонад, агар хӯрок бо вайрон кардани ҳама стандартҳо баста шавад, ноумедӣ гардад. Меҳмон барои маза <strong>ВА</strong> таассурот пардохт мекунад. Ҳар як хӯроки вайроншуда = хатари баргардондан, баррасии манфӣ ва аз даст додани фоида.",
+            rulesTitle: "Қоидаҳои асосӣ",
+            rulesBadge: "ҳар як ошпаз бояд бидонад",
+            qa: [
+                { q: "Савол 1: Барои ҳар як хӯрок кадом бастаро гирифтан лозим?",
+                  a: "Барои ҳар як хӯрок дар стандарт ва чек-марка бастаи худ нишон дода шудааст – стандартро омӯзед. Тахмин накунед – санҷед.",
+                  task: "🎯 Вазифа: агар шубҳа дошта бошед, ба стандарт нигоҳ кунед ё аз ҳамкорон пурсед." },
+                { q: "Савол 2: Бастаро дар ошхона дар куҷо ва чӣ гуна нигоҳ доштан мумкин?",
+                  a: "Танҳо дар ҳолати чаппа, пояш боло. То ба дохил чанг, намӣ ва ашёи бегона нарасад ва баста деформатсия нашавад.",
+                  task: "🎯 Вазифа: пас аз гирифтани захира барои навбат, фавран стопкаҳоро чаппа кунед — пояш боло." },
+                { q: "Савол 3: Чаро «он таврӣ» бастаро истифода бурдан мумкин нест?",
+                  a: "Ҳангоми инвентаризатсия ихтилофҳо пайдо мешаванд, ва муҳимтараш, меҳмон шӯрборо дар ҷоми салат гирифта, хӯрок вайрон мешавад. Ин шарм аст ва гарон.",
+                  task: "🎯 Вазифа: он чиро ки дар стандарт нишон дода шудааст, аниқ гиред." },
+                { q: "Савол 4: Агар бастаи зарурӣ набошад, чӣ бояд кард?",
+                  a: "Фавран ба роҳбаратон, менеҷер ё оператори расонидан хабар диҳед. Онҳо роҳи ҳалли масъаларо меёбанд (фармоиш аз ресторани дигар ё ивазкунии мувофиқашуда).",
+                  task: "🎯 Вазифа: хомӯш намонидан, бе мувофиқа «он чи ба даст омад» нагиред." },
+                { q: "Савол 5: Чӣ тавр фаҳмидан мумкин аст, ки баста вайрон шудааст?",
+                  a: "Тарқишҳо, ифлосшавӣ, деформатсия, сарпӯши ногерметикӣ – ин нуқсон аст. Чунин бастаро истифода бурдан мумкин нест.",
+                  task: "🎯 Вазифа: контейнерро пеш аз гузоштани хӯрок санҷед." },
+                { q: "Савол 6: Кӣ дурустии бастаро тафтиш мекунад?",
+                  a: "Ҳар як ошпаз барои хӯроки худ масъул аст. Агар роҳбари шумо, оператори расонидан ё менеҷер хаторо пайхас кунанд – бе рӯҳафтодагӣ дар бастаи дуруст дубора мебанбандем.",
+                  task: "🎯 Вазифа: ба эродҳо ранҷида нашавед – ин ғамхорӣ ба меҳмон ва обрӯст." }
+            ],
+            reinforce: "<strong>🔁 Чӣ гуна стандартро нигоҳ медорем ва ба хӯрокҳои вайроншаванда роҳ намедиҳем</strong><br><br>• Ҳар рӯз: санҷиши назоратии 3–5 фармоиш аз ҷониби шеф ё су-шеф.<br>• Хаторо бе ҷазо таҳлил мекунем – аз онҳо ибрат мегирем. Агар хӯрок бо вайрон кардани стандартҳо баста шуда бошад, барои дубора бастан фиристода мешавад.<br>📢 <strong>Ҳар як хӯроки вайроншуда – зарба ба обрӯст. Дастаи мо беҳтарин расонидан дар шаҳр аст.</strong>",
+            testTitle: "📝 Санҷиш: худатро дар 2 дақиқа озмо",
+            questions: [
+                { text: "1. Шумо шубҳа доред, ки барои хӯрок кадом баста лозим аст. Амали шумо?", options: ["Ягон монандро мегирам, пӯшидан муҳим", "Аз курьер мепурсам", "Дар ёддошт дар ҷои кор мебинам"], correct: "2" },
+                { text: "2. Контейнерҳоро дар ошхона чӣ гуна дуруст нигоҳ доштан мумкин?", options: ["Танҳо чаппа, пояш боло", "Ҳар гуна, зуд гирифтан муҳим аст", "Сарпӯш поён, то чанг нагирад"], correct: "0" },
+                { text: "3. Бастаи зарурӣ нест. Чӣ бояд кард?", options: ["Фавран ба менеҷери расонидан бигӯед", "Барои хӯроки дигар контейнер гиред", "Бе огоҳӣ фармоишро бекор кунед"], correct: "0" },
+                { text: "4. Дар контейнер тарқиш мебинед. Оё метавон онро истифода кард?", options: ["Бале, агар хурд бошад", "Не, бастаи нуқсонро истифода бурдан мумкин нест", "Танҳо барои газакҳои хунук"], correct: "1" },
+                { text: "5. Кӣ барои бастаи дурусти хӯрок масъул аст?", options: ["Танҳо менеҷер", "Курьер, ӯ мебарад", "Ҳар ошпаз барои хӯроки худ"], correct: "2" }
+            ],
+            footer: "🚫 Ҳеҷ гуна хӯрокҳои вайроншуда! Ҳар як контейнер – чеҳраи ресторани мост. Стандартҳоро риоя кунед.",
+            btnCheck: "Ҷавобҳоро санҷед"
+        }
+    };
+
+    let currentLang = 'ru';
+
+    function renderPage() {
+        const t = translations[currentLang];
+        if (!t) return;
+        document.getElementById('badgeText').innerText = t.badge;
+        document.getElementById('heroTitle').innerHTML = t.heroTitle;
+        document.getElementById('heroSub').innerText = t.heroSub;
+        document.getElementById('awareText').innerHTML = t.aware;
+        document.getElementById('rulesTitle').innerHTML = t.rulesTitle;
+        document.getElementById('rulesBadge').innerHTML = t.rulesBadge;
+        document.getElementById('reinforceText').innerHTML = t.reinforce;
+        document.getElementById('testTitle').innerHTML = t.testTitle + ' <span style="font-size: 0.8rem;">5 вопросов</span>';
+        document.getElementById('footerNote').innerText = t.footer;
+        document.getElementById('checkQuiz').innerText = t.btnCheck;
+
+        // вопросы-ответы
+        const qaGrid = document.getElementById('qaGrid');
+        qaGrid.innerHTML = '';
+        t.qa.forEach(item => {
+            const qaItem = document.createElement('div');
+            qaItem.className = 'qa-item';
+            qaItem.innerHTML = `
+                <div class="qa-question">${item.q}</div>
+                <div class="qa-answer">
+                    <p>${item.a}</p>
+                    <div class="task-red">${item.task}</div>
+                </div>
+            `;
+            qaGrid.appendChild(qaItem);
+        });
+
+        // тестовые вопросы
+        for (let i = 1; i <= 5; i++) {
+            const q = t.questions[i-1];
+            document.getElementById(`q${i}text`).innerHTML = q.text;
+            const optionsDiv = document.getElementById(`q${i}opts`);
+            optionsDiv.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const label = document.createElement('label');
+                label.className = 'option';
+                label.innerHTML = `<input type="radio" name="q${i}" value="${idx}"> ${opt}`;
+                optionsDiv.appendChild(label);
+            });
+            // сохраним correct для проверки (можно через data-correct, но мы оставим в объекте)
+            const container = document.querySelector(`.test-question[data-qid="${i}"]`);
+            if (container) container.setAttribute('data-correct', q.correct);
+        }
+        // сбросить выбранные радио при смене языка (чтобы не было конфликта)
+        document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+        document.getElementById('quizResult').innerHTML = '';
+        document.getElementById('quizFeedback').innerHTML = '';
+    }
+
+    // переключение языка
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentLang = btn.getAttribute('data-lang');
+            renderPage();
+        });
+    });
+
+    // логика проверки теста
+    document.getElementById('checkQuiz').addEventListener('click', () => {
+        const t = translations[currentLang];
+        let score = 0;
+        let allAnswered = true;
+        for (let i = 1; i <= 5; i++) {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (!selected) {
+                allAnswered = false;
+                continue;
+            }
+            const correctVal = document.querySelector(`.test-question[data-qid="${i}"]`).getAttribute('data-correct');
+            if (selected.value === correctVal) score++;
+        }
+        if (!allAnswered) {
+            document.getElementById('quizFeedback').innerHTML = '⚠️ ' + (currentLang === 'ru' ? 'Ответьте на все 5 вопросов.' :
+                currentLang === 'en' ? 'Answer all 5 questions.' :
+                currentLang === 'ky' ? 'Бардык 5 суроого жооп бериңиз.' :
+                currentLang === 'uz' ? 'Barcha 5 savolga javob bering.' : 'Ба ҳамаи 5 савол ҷавоб диҳед.');
+            document.getElementById('quizResult').innerHTML = '';
+            return;
+        }
+        let message = '';
+        if (score === 5) message = t.score5 || (currentLang === 'ru' ? '🎖️ Отлично! Ты мастер упаковки.' : 
+            (currentLang === 'en' ? '🎖️ Excellent! You are a packaging master.' :
+             currentLang === 'ky' ? '🎖️ Мыкты! Сен таңгактоо чеберисиң.' :
+             currentLang === 'uz' ? '🎖️ Ajoyib! Siz qadoqlash ustasisiz.' : '🎖️ Аъло! Шумо устоди бастабандӣ ҳастед.'));
+        else if (score === 4) message = t.score4 || (currentLang === 'ru' ? '👍 Хорошо! Одна ошибка – повтори правила.' :
+            (currentLang === 'en' ? '👍 Good! One mistake – review the rules.' :
+             currentLang === 'ky' ? '👍 Жакшы! Бир ката – эрежелерди кайтала.' :
+             currentLang === 'uz' ? '👍 Yaxshi! Bitta xato – qoidalarni takrorlang.' : '👍 Хуб! Як хато – қоидаҳоро такрор кунед.'));
+        else if (score === 3) message = t.score3 || (currentLang === 'ru' ? '📘 Неплохо, но есть пробелы. Перечитай главные правила.' :
+            (currentLang === 'en' ? '📘 Not bad, but there are gaps. Reread the main rules.' :
+             currentLang === 'ky' ? '📘 Жаман эмес, бирок кемчиликтер бар. Негизги эрежелерди кайра оку.' :
+             currentLang === 'uz' ? '📘 Yomon emas, lekin kamchiliklar bor. Asosiy qoidalarni qayta o\'qing.' : '📘 Бад нест, аммо нуқсонҳо мавҷуд. Қоидаҳои асосиро дубора хонед.'));
+        else message = t.scoreLow || (currentLang === 'ru' ? '🔄 Важно повторить! Неправильная упаковка = испорченные блюда.' :
+            (currentLang === 'en' ? '🔄 Important to review! Wrong packaging = spoiled dishes.' :
+             currentLang === 'ky' ? '🔄 Кайталоо маанилүү! Туура эмес таңгак = бузулган тамактар.' :
+             currentLang === 'uz' ? '🔄 Takrorlash muhim! Noto\'g\'ri qadoq = buzilgan taomlar.' : '🔄 Такрор кардан муҳим! Бастаи нодуруст = хӯрокҳои вайроншуда.'));
+        document.getElementById('quizResult').innerHTML = `✅ ${t.scoreText || (currentLang === 'ru' ? 'Правильных ответов' : 
+            (currentLang === 'en' ? 'Correct answers' : 
+             currentLang === 'ky' ? 'Туура жооптор' : 
+             currentLang === 'uz' ? "To'g'ri javoblar" : 'Ҷавобҳои дуруст'))}: ${score} / 5`;
+        document.getElementById('quizFeedback').innerHTML = message;
+    });
+
+    // добавим недостающие переводы для сообщений теста
+    const extraTrans = {
+        ru: { score5: '🎖️ Отлично! Ты мастер упаковки. Гости никогда не увидят испорченных блюд.', score4: '👍 Хорошо! Одна ошибка – посмотри ещё раз правила про хранение или замену упаковки.', score3: '📘 Неплохо, но есть пробелы. Перечитай раздел «Главные правила».', scoreLow: '🔄 Важно повторить! Неправильная упаковка = испорченные блюда и возвраты. Пройди вопросы заново.', scoreText: 'Правильных ответов' },
+        en: { score5: '🎖️ Excellent! You are a packaging master. Guests will never see spoiled dishes.', score4: '👍 Good! One mistake – review the rules about storage or replacement.', score3: '📘 Not bad, but there are gaps. Reread the "Main rules" section.', scoreLow: '🔄 Important to review! Wrong packaging = spoiled dishes and refunds. Take the quiz again.', scoreText: 'Correct answers' },
+        ky: { score5: '🎖️ Мыкты! Сен таңгактоо чеберисиң. Коноктор эч качан бузулган тамактарды көрүшпөйт.', score4: '👍 Жакшы! Бир ката – сактоо же алмаштыруу эрежелерин кайра кара.', score3: '📘 Жаман эмес, бирок кемчиликтер бар. «Негизги эрежелер» бөлүмүн кайра оку.', scoreLow: '🔄 Кайталоо маанилүү! Туура эмес таңгак = бузулган тамактар жана кайтарымдар. Текшерүүнү кайра өт.', scoreText: 'Туура жооптор' },
+        uz: { score5: '🎖️ Ajoyib! Siz qadoqlash ustasisiz. Mehmonlar hech qachon buzilgan taomlarni ko‘rmaydilar.', score4: '👍 Yaxshi! Bitta xato – saqlash yoki almashtirish qoidalarini qayta ko‘rib chiq.', score3: '📘 Yomon emas, lekin kamchiliklar bor. «Asosiy qoidalar» bo‘limini qayta o‘qing.', scoreLow: '🔄 Takrorlash muhim! Noto‘g‘ri qadoq = buzilgan taomlar va qaytarishlar. Testni qayta ishlang.', scoreText: "To'g'ri javoblar" },
+        tg: { score5: '🎖️ Аъло! Шумо устоди бастабандӣ ҳастед. Меҳмонон ҳеҷ гоҳ хӯрокҳои вайроншударо намебинанд.', score4: '👍 Хуб! Як хато – қоидаҳои нигоҳдорӣ ё ивазкуниро такрор кунед.', score3: '📘 Бад нест, аммо нуқсонҳо мавҷуд. Қисми «Қоидаҳои асосиро» дубора хонед.', scoreLow: '🔄 Такрор кардан муҳим! Бастаи нодуруст = хӯрокҳои вайроншуда ва баргардондан. Санҷишро дубора гузаронед.', scoreText: 'Ҷавобҳои дуруст' }
+    };
+    for (let lang in extraTrans) {
+        if (!translations[lang]) translations[lang] = {};
+        Object.assign(translations[lang], extraTrans[lang]);
+    }
+
+    renderPage();
+</script>
+</body>
+</html>
